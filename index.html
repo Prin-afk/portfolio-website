@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rinsiya | BTech CSE Student Portfolio</title>
+  <meta name="description" content="Portfolio of Rinsiya, final year BTech Computer Science Engineering student at APJ Abdul Kalam Technological University." />
+  <meta name="author" content="Rinsiya" />
+  <meta name="keywords" content="Rinsiya, Portfolio, Computer Science, Engineering, APJ Abdul Kalam Technological University, Projects, Resume" />
+  <meta property="og:title" content="Rinsiya | BTech CSE Student Portfolio" />
+  <meta property="og:description" content="Portfolio of Rinsiya, final year BTech Computer Science Engineering student." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourgithubusername.github.io/" />
+  <meta property="og:image" content="images/profile.jpg" />
+  <link rel="icon" href="favicon.ico" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* CSS Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* CSS Variables for Light and Dark Mode */
+    :root {
+      --bg: #ffffff;
+      --text: #24292e;
+      --accent: #0366d6;
+      --header-bg: #f6f8fa;
+      --card-bg: #ffffff;
+      --shadow: rgba(0,0,0,0.1);
+      --border: #e1e4e8;
+      --progress-bg: #e1e4e8;
+      --progress-fill: #0366d6;
+      --btn-bg: #0366d6;
+      --btn-text: #fff;
+      --btn-hover-bg: #024ea2;
+      --input-bg: #fff;
+      --input-border: #d1d5da;
+      --input-focus-border: #0366d6;
+    }
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --text: #c9d1d9;
+      --accent: #58a6ff;
+      --header-bg: #161b22;
+      --card-bg: #161b22;
+      --shadow: rgba(0,0,0,0.5);
+      --border: #30363d;
+      --progress-bg: #30363d;
+      --progress-fill: #58a6ff;
+      --btn-bg: #238636;
+      --btn-text: #fff;
+      --btn-hover-bg: #2ea043;
+      --input-bg: #0d1117;
+      --input-border: #30363d;
+      --input-focus-border: #58a6ff;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 0;
+      flex-grow: 1;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 4px var(--shadow);
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0.5rem 1rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--accent);
+      user-select: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .nav-links a.active,
+    .nav-links a:hover,
+    .nav-links a:focus {
+      background-color: var(--accent);
+      color: var(--btn-text);
+      outline: none;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    /* Mobile nav */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        background-color: var(--header-bg);
+        height: calc(100% - 60px);
+        width: 200px;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        box-shadow: -2px 0 5px var(--shadow);
+        transition: right 0.3s ease;
+      }
+      .nav-links.open {
+        right: 0;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    #hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1rem 6rem;
+      background-color: var(--header-bg);
+      box-shadow: 0 2px 4px var(--shadow);
+    }
+    #hero img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--accent);
+    }
+    #hero h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0 0.25rem;
+      color: var(--accent);
+    }
+    #hero h2 {
+      font-weight: 400;
+      font-size: 1.25rem;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    #hero .typing {
+      font-weight: 600;
+      font-size: 1.1rem;
+      height: 1.5rem;
+      color: var(--text);
+      min-height: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-family: monospace;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid var(--accent);
+      animation: blink-caret 0.75s step-end infinite;
+    }
+    @keyframes blink-caret {
+      50% { border-color: transparent; }
+    }
+    #hero .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn:hover, .btn:focus {
+      background-color: var(--btn-hover-bg);
+      outline: none;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 4rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+    }
+
+    /* About Me */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    #about img {
+      border-radius: 8px;
+      max-width: 100%;
+      height: auto;
+      border: 3px solid var(--accent);
+    }
+    #about .summary {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    /* Skills */
+    .skills {
+      margin-top: 1.5rem;
+    }
+    .skill {
+      margin-bottom: 1rem;
+    }
+    .skill-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .progress-bar {
+      background-color: var(--progress-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+    .progress-fill {
+      background-color: var(--progress-fill);
+      height: 100%;
+      width: 0;
+      transition: width 1s ease-in-out;
+      border-radius: 10px;
+    }
+    /* Timeline */
+    .timeline {
+      margin-top: 2rem;
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--header-bg);
+    }
+    .timeline-item h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    .timeline-item time {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-style: italic;
+    }
+    .timeline-item p {
+      margin: 0.25rem 0 0;
+      color: var(--text);
+    }
+
+    /* Projects */
+    #projects .filters {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    #projects .filters input[type="text"] {
+      flex-grow: 1;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      background-color: var(--input-bg);
+      color: var(--text);
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    #projects .filters input[type="text"]:focus {
+      border-color: var(--input-focus-border);
+      outline: none;
+    }
+    #projects .filters select {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      background-color: var(--input-bg);
+      color: var(--text);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    #projects .filters select:focus {
+      border-color: var(--input-focus-border);
+      outline: none;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .project-card:hover, .project-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px var(--shadow);
+      outline: none;
+    }
+    .project-image {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .project-content {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem;
+      color: var(--accent);
+    }
+    .project-description {
+      flex-grow: 1;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .project-tech {
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 1rem;
+    }
+    .project-links a {
+      color: var(--accent);
+      font-size: 1.25rem;
+      transition: color 0.3s;
+    }
+    .project-links a:hover, .project-links a:focus {
+      color: var(--btn-hover-bg);
+      outline: none;
+    }
+    /* No results message */
+    #no-results {
+      text-align: center;
+      font-style: italic;
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+    .modal.open {
+      display: flex;
+    }
+    .modal-content {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 1.5rem;
+      position: relative;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--accent);
+      cursor: pointer;
+    }
+    .modal-close:hover, .modal-close:focus {
+      color: var(--btn-hover-bg);
+      outline: none;
+    }
+    .modal-content h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .modal-content p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .modal-content .tech-list {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .modal-content .links a {
+      margin-right: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .modal-content .links a:hover, .modal-content .links a:focus {
+      color: var(--btn-hover-bg);
+      outline: none;
+    }
+
+    /* Experience Section */
+    #experience .timeline {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+    #experience .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    #experience .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--header-bg);
+    }
+    #experience .timeline-item h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+    #experience .timeline-item time {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-style: italic;
+    }
+    #experience .timeline-item p {
+      margin: 0.25rem 0 0;
+      color: var(--text);
+    }
+    /* Skills Matrix */
+    .skills-matrix {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-matrix-item {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      flex: 1 1 150px;
+      text-align: center;
+      font-weight: 600;
+      color: var(--text);
+      box-shadow: 0 1px 3px var(--shadow);
+    }
+
+    /* Download Resume Button */
+    #experience .download-resume {
+      margin-top: 1.5rem;
+      display: inline-block;
+    }
+
+    /* Contact Section */
+       /* Contact Section */
+    #contact form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact label {
+      font-weight: 600;
+      color: var(--text);
+    }
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--input-border);
+      border-radius: 6px;
+      background-color: var(--input-bg);
+      color: var(--text);
+      font-size: 1rem;
+      resize: vertical;
+      transition: border-color 0.3s;
+      font-family: inherit;
+    }
+    #contact input[type="text"]:focus,
+    #contact input[type="email"]:focus,
+    #contact textarea:focus {
+      border-color: var(--input-focus-border);
+      outline: none;
+    }
+    #contact textarea {
+      min-height: 120px;
+    }
+    #contact .error-message {
+      color: #d93025; /* red */
+      font-size: 0.875rem;
+      display: none;
+    }
+    #contact .success-message {
+      color: #238636; /* green */
+      font-size: 1rem;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
+    }
+    #contact button[type="submit"] {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      align-self: flex-start;
+    }
+    #contact button[type="submit"]:hover,
+    #contact button[type="submit"]:focus {
+      background-color: var(--btn-hover-bg);
+      outline: none;
+    }
+    /* Alternative contact methods */
+    #contact .alt-contact {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+    #contact .alt-contact a {
+      color: var(--accent);
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+    #contact .alt-contact a:hover,
+    #contact .alt-contact a:focus {
+      color: var(--btn-hover-bg);
+      outline: none;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--header-bg);
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Dark/Light Mode Toggle */
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      transition: color 0.3s;
+    }
+    .theme-toggle:hover,
+    .theme-toggle:focus {
+      color: var(--btn-hover-bg);
+      outline: none;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="logo" tabindex="0">Rinsiya</div>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+      <div class="nav-links" id="primary-navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" tabindex="-1" aria-label="Introduction">
+     
+      <h1>Rinsiya</h1>
+      <h2>Final Year BTech Computer Science Engineering Student</h2>
+      <div class="typing" aria-live="polite" aria-atomic="true"></div>
+      <div class="btn-group">
+        <a href="#contact" class="btn" role="button"><i class="fa-solid fa-envelope"></i> Contact</a>
+        <a href="resume.pdf" class="btn" role="button" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+        <a href="#projects" class="btn" role="button"><i class="fa-solid fa-folder-open"></i> View Projects</a>
+      </div>
+      <div class="btn-group" style="margin-top:1rem;">
+        <a href="https://github.com/Prin-afk" target="_blank" rel="noopener" aria-label="GitHub Profile" class="btn" style="background-color:#333;"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="btn" style="background-color:#0077b5;"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" tabindex="-1" aria-label="About Me" class="container">
+      
+      <div>
+        <h2>About Me</h2>
+        <p class="summary">
+          Hello! I am Rinsiya, a final year BTech Computer Science Engineering student at APJ Abdul Kalam Technological University, graduating in May 2026. I am passionate about software development, problem-solving, and learning new technologies.
+        </p>
+        <div class="skills" aria-label="Skills">
+          <h3>Skills</h3>
+          <div class="skill">
+            <div class="skill-name">JavaScript</div>
+            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" role="progressbar">
+              <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">HTML & CSS</div>
+            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" role="progressbar">
+              <div class="progress-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">Python</div>
+            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" role="progressbar">
+              <div class="progress-fill" style="width: 70%;"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="skill-name">React</div>
+            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" role="progressbar">
+              <div class="progress-fill" style="width: 60%;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline" aria-label="Career Highlights">
+          <h3>Career Highlights</h3>
+          <div class="timeline-item">
+            <h3>Internship at XYZ Company</h3>
+            <time datetime="2024-06">June 2024</time>
+            <p>Worked on web development projects using JavaScript and React.</p>
+          </div>
+          <div class="timeline-item">
+            <h3>Completed Advanced Python Course</h3>
+            <time datetime="2023-12">December 2023</time>
+            <p>Enhanced skills in Python programming and data structures.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" tabindex="-1" aria-label="Projects Portfolio" class="container">
+      <h2>Projects</h2>
+      <div class="filters" role="search" aria-label="Project search and filters">
+        <input type="text" id="search-input" placeholder="Search projects..." aria-label="Search projects by title, description, or technology" />
+        <select id="tech-filter" aria-label="Filter projects by technology">
+          <option value="">All Technologies</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="React">React</option>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+        </select>
+        <select id="type-filter" aria-label="Filter projects by type">
+          <option value="">All Types</option>
+          <option value="Web App">Web App</option>
+          <option value="API">API</option>
+          <option value="Script">Script</option>
+        </select>
+      </div>
+      <div class="projects-grid" id="projects-grid" aria-live="polite" aria-atomic="true">
+        <!-- Project cards inserted by JS -->
+      </div>
+      <div id="no-results" role="alert" style="display:none;">No projects match your search.</div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" tabindex="-1" aria-label="Experience and Resume" class="container">
+      <h2>Experience & Resume</h2>
+      <div class="timeline" aria-label="Work Experience">
+        <div class="timeline-item">
+          <h3>   .Intern - XYZ Company</h3>
+          <time datetime="2024-06">June 2024 - August 2024</time>
+          <p>Developed front-end features using React and JavaScript.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>   .Student Researcher</h3>
+          <time datetime="2023-01">January 2023 - May 2023</time>
+          <p>Worked on machine learning projects using Python.</p>
+        </div>
+      </div>
+      <div class="timeline" aria-label="Education" style="margin-top:2rem;">
+        <h3>Education</h3>
+        <div class="timeline-item">
+          <h3>   .BTech Computer Science Engineering</h3>
+          <time datetime="2022-05">Expected Graduation: May 2026</time>
+          <p>APJ Abdul Kalam Technological University</p>
+        </div>
+      </div>
+      <div class="skills-matrix" aria-label="Skills Matrix">
+        <div class="skill-matrix-item">JavaScript - Advanced</div>
+        <div class="skill-matrix-item">Python - Intermediate</div>
+        <div class="skill-matrix-item">React - Intermediate</div>
+        <div class="skill-matrix-item">HTML & CSS - Advanced</div>
+        <div class="skill-matrix-item">Git & GitHub - Intermediate</div>
+      </div>
+      <a href="resume.pdf" download class="btn download-resume" aria-label="Download Resume PDF"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" tabindex="-1" aria-label="Contact Me" class="container">
+      <h2>Contact</h2>
+      <form id="contact-form" novalidate aria-describedby="form-status">
+        <label for="name">Name <span aria-hidden="true">*</span></label>
+        <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error" />
+        <div id="name-error" class="error-message" role="alert"></div>
+
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error" />
+        <div id="email-error" class="error-message" role="alert"></div>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" aria-describedby="subject-error" />
+        <div id="subject-error" class="error-message" role="alert"></div>
+
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" required aria-required="true" aria-describedby="message-error"></textarea>
+        <div id="message-error" class="error-message" role="alert"></div>
+
+        <button type="submit" aria-live="polite" aria-atomic="true">Send Message</button>
+        <div id="form-status" class="success-message" role="alert"></div>
+      </form>
+      <div class="alt-contact" aria-label="Alternative contact methods">
+        <p>Email: <a href="mailto:rinsiya@example.com">rinsiya@example.com</a></p>
+        <p>Phone: <a href="tel:+911234567890">+91 12345 67890</a></p>
+        <p>Location: Kerala, India</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Rinsiya. All rights reserved.
+  </footer>
+
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close project details">&times;</button>
+      <h3 id="modal-title"></h3>
+      <img id="modal-image" src="" alt="" />
+      <p id="modal-desc"></p>
+      <div class="tech-list" id="modal-tech"></div>
+      <div class="links" id="modal-links"></div>
+    </div>
+  </div>
+
+  <script>
+    // Dark/Light Mode Toggle with localStorage persistence
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      setTheme(prefersDarkScheme.matches ? 'dark' : 'light');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', false);
+        }
+      });
+    });
+
+    // Active section highlighting on scroll
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+
+    function activateNav() {
+      let index = sections.length;
+
+      while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+      navItems.forEach((link) => link.classList.remove('active'));
+      navItems[index].classList.add('active');
+    }
+    activateNav();
+    window.addEventListener('scroll', activateNav);
+
+    // Typing effect in hero section
+    const typingElement = document.querySelector('#hero .typing');
+    const phrases = [
+      "Aspiring Software Developer.",
+      "Passionate about Coding & Technology.",
+      "Final Year BTech CSE Student.",
+      "Open to Internship Opportunities."
+    ];
+    let phraseIndex = 0;
+    let letterIndex = 0;
+    let currentPhrase = '';
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    function type() {
+      if (phraseIndex >= phrases.length) phraseIndex = 0;
+      currentPhrase = phrases[phraseIndex];
+
+      if (!isDeleting) {
+        typingElement.textContent = currentPhrase.substring(0, letterIndex + 1);
+        letterIndex++;
+        if (letterIndex === currentPhrase.length) {
+          isDeleting = true;
+          typingSpeed = 1500;
+        } else {
+          typingSpeed = 100;
+        }
+      } else {
+        typingElement.textContent = currentPhrase.substring(0, letterIndex - 1);
+        letterIndex--;
+        if (letterIndex === 0) {
+          isDeleting = false;
+          phraseIndex++;
+          typingSpeed = 500;
+        } else {
+          typingSpeed = 50;
+        }
+      }
+      setTimeout(type, typingSpeed);
+    }
+    type();
+
+    // Projects data
+    const projects = [
+      {
+        id: 1,
+        title: "Personal Portfolio Website",
+        description: "A responsive portfolio website built with HTML, CSS, and JavaScript.",
+        tech: ["HTML", "CSS", "JavaScript"],
+        type: "Web App",
+        image: "Screenshot from 2025-09-21 03-17-04.png",
+      
+        liveDemo: "https://yourgithubusername.github.io/portfolio",
+        github: "https://github.com/yourgithubusername/portfolio"
+      },
+      {
+        id: 2,
+        title: "Weather App",
+        description: "A web app that fetches and displays weather data using OpenWeatherMap API.",
+        tech: ["JavaScript", "HTML", "CSS"],
+        type: "Web App",
+        image: "Screenshot from 2025-09-21 03-19-12.png",
+        liveDemo: "https://yourgithubusername.github.io/weather-app",
+        github: "https://github.com/yourgithubusername/weather-app"
+      },
+      {
+        id: 3,
+        title: "Python Data Analysis",
+        description: "Scripts for analyzing datasets using Python and Pandas.",
+        tech: ["Python"],
+        type: "Script",
+        image: "Screenshot from 2025-09-21 03-21-12.png",
+        liveDemo: "",
+        github: "https://github.com/yourgithubusername/data-analysis"
+      },
+      {
+        id: 4,
+        title: "React ToDo App",
+        description: "A simple ToDo application built with React.",
+        tech: ["React", "JavaScript", "CSS"],
+        type: "Web App",
+        image: "Screenshot from 2025-09-21 03-23-25.png",
+        liveDemo: "https://yourgithubusername.github.io/react-todo",
+        github: "https://github.com/yourgithubusername/react-todo"
+      }
+    ];
+
+    // Render projects
+    const projectsGrid = document.getElementById('projects-grid');
+    const noResults = document.getElementById('no-results');
+    const searchInput = document.getElementById('search-input');
+    const techFilter = document.getElementById('tech-filter');
+    const typeFilter = document.getElementById('type-filter');
+
+    function createProjectCard(project) {
+      const card = document.createElement('article');
+      card.className = 'project-card';
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `View details for project ${project.title}`);
+
+      card.innerHTML = `
+        <img src="${project.image}" alt="Screenshot of ${project.title}" class="project-image" loading="lazy" />
+        <div class="project-content">
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          <div class="project-tech"><strong>Technologies:</strong> ${project.tech.join(', ')}</div>
+          <div class="project-links">
+            ${project.liveDemo ? `<a href="${project.liveDemo}" target="_blank" rel="noopener" aria-label="Live demo of ${project.title}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>` : ''}
+            ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" aria-label="GitHub repository of ${project.title}"><i class="fa-brands fa-github"></i></a>` : ''}
+          </div>
+        </div>
+      `;
+      // Click or Enter key opens modal
+      card.addEventListener('click', () => openModal(project));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(project);
+        }
+      });
+      return card;
+    }
+
+    function renderProjects(filteredProjects) {
+      projectsGrid.innerHTML = '';
+      if (filteredProjects.length === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+        filteredProjects.forEach(project => {
+          projectsGrid.appendChild(createProjectCard(project));
+        });
+      }
+    }
+
+    // Filter projects based on search and filters
+    function filterProjects() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const techValue = techFilter.value;
+      const typeValue = typeFilter.value;
+
+      const filtered = projects.filter(project => {
+        const matchesSearch = project.title.toLowerCase().includes(searchTerm) ||
+          project.description.toLowerCase().includes(searchTerm) ||
+          project.tech.some(t => t.toLowerCase().includes(searchTerm));
+        const matchesTech = techValue === '' || project.tech.includes(techValue);
+        const matchesType = typeValue === '' || project.type === typeValue;
+        return matchesSearch && matchesTech && matchesType;
+      });
+      renderProjects(filtered);
+    }
+
+    searchInput.addEventListener('input', filterProjects);
+    techFilter.addEventListener('change', filterProjects);
+    typeFilter.addEventListener('change', filterProjects);
+
+    // Initial render
+    renderProjects(projects);
+
+    // Modal functionality
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalImage = document.getElementById('modal-image');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTech = document.getElementById('modal-tech');
+    const modalLinks = document.getElementById('modal-links');
+    const modalCloseBtn = modal.querySelector('.modal-close');
+
+    function openModal(project) {
+      modalTitle.textContent = project.title;
+      modalImage.src = project.image;
+      modalImage.alt = `Screenshot of ${project.title}`;
+      modalDesc.textContent = project.description;
+      modalTech.textContent = 'Technologies: ' + project.tech.join(', ');
+      modalLinks.innerHTML = '';
+      if (project.liveDemo) {
+        const liveLink = document.createElement('a');
+        liveLink.href = project.liveDemo;
+        liveLink.target = '_blank';
+        liveLink.rel = 'noopener';
+        liveLink.textContent = 'Live Demo';
+        liveLink.setAttribute('aria-label', `Live demo of ${project.title}`);
+        modalLinks.appendChild(liveLink);
+      }
+      if (project.github) {
+        const gitLink = document.createElement('a');
+        gitLink.href = project.github;
+        gitLink.target = '_blank';
+        gitLink.rel = 'noopener';
+        gitLink.textContent = 'GitHub Repo';
+        gitLink.setAttribute('aria-label', `GitHub repository of ${project.title}`);
+        modalLinks.appendChild(gitLink);
+      }
+      modal.classList.add('open');
+      modalCloseBtn.focus();
+      document.body.style.overflow = 'hidden'; // prevent background scroll
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+
+    // Contact form validation and submission (using Formspree as example)
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    function showError(input, message) {
+      const errorDiv = document.getElementById(input.id + '-error');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      input.setAttribute('aria-invalid', 'true');
+    }
+
+    function clearError(input) {
+      const errorDiv = document.getElementById(input.id + '-error');
+      errorDiv.textContent = '';
+      errorDiv.style.display = 'none';
+      input.removeAttribute('aria-invalid');
+    }
+
+    function validateEmail(email) {
+      // Simple email regex
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      formStatus.style.display = 'none';
+      let valid = true;
+
+      // Validate Name
+      const nameInput = contactForm.name;
+      if (!nameInput.value.trim()) {
+        showError(nameInput, 'Please enter your name.');
+        valid = false;
+      } else {
+        clearError(nameInput);
+      }
+
+      // Validate Email
+      const emailInput = contactForm.email;
+      if (!emailInput.value.trim()) {
+        showError(emailInput, 'Please enter your email.');
+        valid = false;
+      } else if (!validateEmail(emailInput.value.trim())) {
+        showError(emailInput, 'Please enter a valid email address.');
+        valid = false;
+      } else {
+        clearError(emailInput);
+      }
+
+      // Subject is optional, clear error if any
+      clearError(contactForm.subject);
+
+      // Validate Message
+      const messageInput = contactForm.message;
+      if (!messageInput.value.trim()) {
+        showError(messageInput, 'Please enter your message.');
+        valid = false;
+      } else {
+        clearError(messageInput);
+      }
+
+      if (!valid) return;
+
+      // Prepare data for Formspree or other service
+      const formData = new FormData(contactForm);
+
+      // Example: Using Formspree endpoint (replace YOUR_FORMSPREE_ENDPOINT)
+      fetch('https://formspree.io/f/xwpngyzq', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          formStatus.textContent = 'Thank you! Your message has been sent.';
+          formStatus.style.color = '#238636';
+          formStatus.style.display = 'block';
+          contactForm.reset();
+        } else {
+          response.json().then(data => {
+            if (data.errors) {
+              formStatus.textContent = data.errors.map(error => error.message).join(', ');
+            } else {
+              formStatus.textContent = 'Oops! There was a problem submitting your form.';
+            }
+            formStatus.style.color = '#d93025';
+            formStatus.style.display = 'block';
+          });
+        }
+      }).catch(() => {
+        formStatus.textContent = 'Oops! There was a problem submitting your form.';
+        formStatus.style.color = '#d93025';
+        formStatus.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
